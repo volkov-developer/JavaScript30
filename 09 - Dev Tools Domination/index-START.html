@@ -17,29 +17,77 @@
       p.style.fontSize = '50px';
     }
 
+    //To find the JS with modified an element
+    //Brake on -> Attribute Modifications -> Test the element
+
     // Regular
+    console.log('hello');
 
     // Interpolated
+    console.log('Hello I am a %s string', 'TEST');
+    //A ES6 alternative
+    //console.log(`Hello I am ${variable}`);
 
     // Styled
+    console.log('%c I am some great text', 'font-size: 50px; background: red; text-shadow: 10px 10px 0 blue');
 
     // warning!
+    console.warn('OH NOOO');
 
     // Error :|
+    console.error('Shit!');
 
     // Info
+    console.info('Some info goes here');
+    //This feature has been removed -> https://github.com/evertdespiegeleer/console.info
 
     // Testing
+    const p = document.querySelector('p');
+    console.assert(p.classList.contains('ouch'), 'That is wrong!');
 
     // clearing
+    console.clear();
+    //'If you want to mess with a developer this could be put at the bottom of JS file'
 
     // Viewing DOM Elements
+    console.log(p);
+    console.dir(p);
+
+    console.clear();
 
     // Grouping together
+    dogs.forEach(dog => {
+      console.groupCollapsed(`${dog.name}`);
+      console.log(`This is a${dog.name}`);
+      console.log(`${dog.name} is ${dog.age} years old`);
+      console.log(`${dog.name} is ${dog.age * 7} dog years old`);
+      console.groupEnd(`${dog.name}`);
+    });
 
     // counting
+    console.count('Wes');
+    console.count('Wes');
+    console.count('Steve');
+    console.count('Steve');
+    console.count('Wes');
+    console.count('Steve');
+    console.count('Wes');
+    console.count('Steve');
+    console.count('Steve');
+    console.count('Steve');
+    console.count('Steve');
+    console.count('Steve');
 
     // timing
+    console.time('fetching data');
+    fetch('https://api.github.com/users/wesbos')
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd('fetching data');
+        console.log(data);
+      });
+
+    console.table(dogs);
 
   </script>
 </body>
